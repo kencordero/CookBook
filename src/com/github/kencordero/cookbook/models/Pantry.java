@@ -29,6 +29,10 @@ public class Pantry {
 		mIngredients.remove(i);
 	}
 	
+	public ArrayList<Ingredient> getIngredients() {
+		return mIngredients;
+	}
+	
 	public Ingredient getIngredient(UUID id) {
 		for (Ingredient i: mIngredients) {
 			if (i.getId().equals(id))

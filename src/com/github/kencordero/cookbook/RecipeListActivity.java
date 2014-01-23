@@ -2,11 +2,11 @@ package com.github.kencordero.cookbook;
 
 import android.support.v4.app.Fragment;
 
-public class IngredientListActivity extends SingleFragmentActivity {
+public class RecipeListActivity extends SingleFragmentActivity {
 
 	@Override
-	protected Fragment createFragment() {		
-		return new IngredientListFragment();
+	protected Fragment createFragment() {
+		return new RecipeListFragment();
 	}
 	
 	@Override
