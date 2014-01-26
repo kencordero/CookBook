@@ -29,6 +29,10 @@ public class Cookbook {
 		mRecipes.remove(r);
 	}
 	
+	public ArrayList<Recipe> getRecipes() {
+		return mRecipes;
+	}
+	
 	public Recipe getRecipe(UUID id) {
 		for (Recipe r: mRecipes) {
 			if (r.getId().equals(id))
