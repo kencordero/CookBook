@@ -12,7 +12,9 @@ public class Pantry {
 	private Context mAppContext;
 	
 	private Pantry(Context appContext) {
-		mAppContext = appContext;	
+		mAppContext = appContext;
+		
+		mIngredients = new ArrayList<Ingredient>();
 	}
 	
 	public static Pantry get(Context c) {

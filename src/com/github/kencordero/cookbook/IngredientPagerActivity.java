@@ -13,7 +13,8 @@ import android.support.v4.view.ViewPager;
 import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
 
-public class IngredientPagerActivity extends FragmentActivity {
+public class IngredientPagerActivity extends FragmentActivity
+	implements IngredientFragment.Callbacks {
 	private ViewPager mViewPager;
 	private ArrayList<Ingredient> mIngredients;
 	

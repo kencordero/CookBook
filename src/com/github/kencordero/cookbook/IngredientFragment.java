@@ -2,6 +2,7 @@ package com.github.kencordero.cookbook;
 
 import java.util.UUID;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -19,6 +20,26 @@ public class IngredientFragment extends Fragment {
 	
 	private Ingredient mIngredient;
 	private EditText mNameField;
+	private Callbacks mCallbacks;
+	
+	/**
+	 * Required interface for hosting activities.
+	 */
+	public interface Callbacks {
+		void onIngredientUpdated(Ingredient ingredient);
+	}
+	
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		mCallbacks = (Callbacks)activity;
+	}
+	
+	@Override
+	public void onDetach() {
+		super.onDetach();
+		mCallbacks = null;
+	}
 	
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
@@ -48,6 +69,17 @@ public class IngredientFragment extends Fragment {
 				getActivity().setTitle(mIngredient.getName());
 			}			
 		});
-		return v;
+		return v;				
 	}
+	
+	public static IngredientFragment newInstance(UUID ingredientId) {
+		Bundle bundle = new Bundle();
+		bundle.putSerializable(EXTRA_INGREDIENT_ID, ingredientId);
+		
+		IngredientFragment fragment = new IngredientFragment();
+		fragment.setArguments(bundle);
+		
+		return fragment;
+	}
+		
 }
