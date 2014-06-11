@@ -1,9 +1,9 @@
 package com.github.kencordero.cookbook.models;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.UUID;
-
-import android.content.Context;
 
 public class Pantry {
 	private ArrayList<Ingredient> mIngredients;
@@ -13,7 +13,7 @@ public class Pantry {
 	
 	private Pantry(Context appContext) {
 		mAppContext = appContext;
-		
+
 		mIngredients = new ArrayList<Ingredient>();
 	}
 	

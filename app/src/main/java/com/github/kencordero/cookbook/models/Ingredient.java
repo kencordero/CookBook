@@ -10,7 +10,7 @@ public class Ingredient {
 	public Ingredient() {
 		mId = UUID.randomUUID();
 	}
-		
+
 	public String getName() {
 		return mName;
 	}
