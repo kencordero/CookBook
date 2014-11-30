@@ -13,7 +13,6 @@ public class Pantry {
 	
 	private Pantry(Context appContext) {
 		mAppContext = appContext;
-
 		mIngredients = new ArrayList<Ingredient>();
 	}
 	
@@ -42,5 +41,4 @@ public class Pantry {
 		}
 		return null;
 	}
-
 }
