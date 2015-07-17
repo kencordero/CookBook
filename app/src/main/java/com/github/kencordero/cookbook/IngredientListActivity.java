@@ -49,6 +49,4 @@ public class IngredientListActivity extends SingleFragmentActivity
 			ft.add(R.id.detailFragmentContainer, newDetail).commit();
 		}
 	}
-	
-	
 }

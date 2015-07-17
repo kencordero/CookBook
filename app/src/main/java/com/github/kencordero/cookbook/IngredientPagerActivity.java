@@ -1,19 +1,19 @@
 package com.github.kencordero.cookbook;
 
-import java.util.ArrayList;
-import java.util.UUID;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 
 import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
 
-public class IngredientPagerActivity extends FragmentActivity
+import java.util.ArrayList;
+import java.util.UUID;
+
+public class IngredientPagerActivity extends AppCompatActivity
 	implements IngredientFragment.Callbacks {
 	private ViewPager mViewPager;
 	private ArrayList<Ingredient> mIngredients;
