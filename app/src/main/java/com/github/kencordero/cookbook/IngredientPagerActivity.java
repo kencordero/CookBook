@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
@@ -70,6 +72,27 @@ public class IngredientPagerActivity extends AppCompatActivity
 			}
 		}
 	}
-	
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		getMenuInflater().inflate(R.menu.fragment_ingredient, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.menu_item_save_and_add_another:
+				Ingredient ingredient = new Ingredient();
+				Pantry.get(this).addIngredient(ingredient);
+				mViewPager.getAdapter().notifyDataSetChanged();
+				mViewPager.setCurrentItem(mIngredients.size() - 1, true);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+	}
+
 	public void onIngredientUpdated(Ingredient ingredient) { }
 }

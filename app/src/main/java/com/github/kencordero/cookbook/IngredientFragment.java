@@ -1,7 +1,5 @@
 package com.github.kencordero.cookbook;
 
-import java.util.UUID;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +12,8 @@ import android.widget.EditText;
 
 import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
+
+import java.util.UUID;
 
 public class IngredientFragment extends Fragment {
 	public static final String EXTRA_INGREDIENT_ID = "com.github.kencordero.cookbook.ingredient";
@@ -47,7 +47,7 @@ public class IngredientFragment extends Fragment {
 		UUID ingredientId = (UUID)getArguments().getSerializable(EXTRA_INGREDIENT_ID);
 		mIngredient = Pantry.get(getActivity()).getIngredient(ingredientId);
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_ingredient, parent, false);
