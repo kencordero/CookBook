@@ -1,14 +1,24 @@
 package com.github.kencordero.cookbook;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 
 import com.github.kencordero.cookbook.models.Ingredient;
 
 public class IngredientListActivity extends SingleFragmentActivity
 	implements IngredientListFragment.Callbacks, IngredientFragment.Callbacks {
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		ActionBar ab = getSupportActionBar();
+		ab.setIcon(R.drawable.ic_launcher);
+		ab.setDisplayShowHomeEnabled(true);
+	}
 
 	@Override
 	protected Fragment createFragment() {		

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -71,6 +72,11 @@ public class IngredientPagerActivity extends AppCompatActivity
 				break;
 			}
 		}
+
+		ActionBar ab = getSupportActionBar();
+		ab.setIcon(R.drawable.ic_launcher);
+		ab.setDisplayShowHomeEnabled(true);
+		ab.setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
