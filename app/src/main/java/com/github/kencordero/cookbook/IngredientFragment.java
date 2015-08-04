@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,13 @@ import android.widget.EditText;
 import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
 
+import java.util.UUID;
+
 public class IngredientFragment extends Fragment {
+	private static final String TAG = IngredientFragment.class.getSimpleName();
 	public static final String EXTRA_INGREDIENT_ID = "com.github.kencordero.cookbook.ingredient";
 	
 	private Ingredient mIngredient;
-	private EditText mNameField;
 	private Callbacks mCallbacks;
 	
 	/**
@@ -41,36 +44,41 @@ public class IngredientFragment extends Fragment {
 	
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
+		Log.i(TAG, "onCreate");
 		
-		long ingredientId = getArguments().getLong(EXTRA_INGREDIENT_ID);
+		UUID ingredientId = (UUID)getArguments().getSerializable(EXTRA_INGREDIENT_ID);
 		mIngredient = Pantry.get(getActivity()).getIngredient(ingredientId);
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+		Log.i(TAG, "onCreateView");
 		View v = inflater.inflate(R.layout.fragment_ingredient, parent, false);
-		
-		mNameField = (EditText)v.findViewById(R.id.ingredientName);
-		mNameField.setText(mIngredient.getName());
-		mNameField.addTextChangedListener(new TextWatcher() {
+
+		EditText nameField = (EditText) v.findViewById(R.id.ingredientName);
+		nameField.setText(mIngredient.getName());
+		nameField.addTextChangedListener(new TextWatcher() {
 
 			@Override
-			public void afterTextChanged(Editable arg0) { }
+			public void afterTextChanged(Editable arg0) {
+			}
 
 			@Override
 			public void beforeTextChanged(CharSequence arg0, int arg1,
-					int arg2, int arg3) { }
+										  int arg2, int arg3) {
+			}
 
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				mIngredient.setName(s.toString());
 				getActivity().setTitle(mIngredient.getName());
-			}			
+			}
 		});
 		return v;				
 	}
 	
-	public static IngredientFragment newInstance(long ingredientId) {
+	public static IngredientFragment newInstance(UUID ingredientId) {
+		Log.i(TAG, "newInstance");
 		Bundle bundle = new Bundle();
 		bundle.putSerializable(EXTRA_INGREDIENT_ID, ingredientId);
 		
@@ -78,6 +86,13 @@ public class IngredientFragment extends Fragment {
 		fragment.setArguments(bundle);
 		
 		return fragment;
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		Log.i(TAG, "onPause: " + mIngredient.getName());
+		Pantry.get(getActivity()).saveIngredient(mIngredient);
 	}
 		
 }

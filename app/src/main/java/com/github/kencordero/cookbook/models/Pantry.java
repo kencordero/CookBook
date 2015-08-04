@@ -2,17 +2,24 @@ package com.github.kencordero.cookbook.models;
 
 import android.content.Context;
 
+import com.github.kencordero.cookbook.DatabaseHelper;
+
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Pantry {
 	private ArrayList<Ingredient> mIngredients;
 	
 	private static Pantry sPantry;
 	private Context mAppContext;
+	private DatabaseHelper mDb;
 	
 	private Pantry(Context appContext) {
 		mAppContext = appContext;
-		mIngredients = new ArrayList<Ingredient>();
+
+		mDb = new DatabaseHelper(mAppContext);
+		mIngredients = mDb.getAllIngredients();
+
 	}
 	
 	public static Pantry get(Context c) {
@@ -23,6 +30,16 @@ public class Pantry {
 	
 	public void addIngredient(Ingredient i) {
 		mIngredients.add(i);
+	}
+
+	public void saveIngredient(Ingredient i) {
+		if (i.getName().isEmpty()) return;
+		if (i.getId() == -1) {
+			long id = mDb.createIngredient(i);
+			i.setId(id);
+		} else {
+			mDb.updateIngredient(i);
+		}
 	}
 	
 	public void removeIngredient(Ingredient i) {
@@ -39,5 +56,17 @@ public class Pantry {
 				return i;
 		}
 		return null;
+	}
+
+	public Ingredient getIngredient(UUID id) {
+		for (Ingredient i: mIngredients) {
+			if (i.getUuid().equals(id))
+				return i;
+		}
+		return null;
+	}
+
+	public void dispose() {
+		mDb.closeDB();
 	}
 }

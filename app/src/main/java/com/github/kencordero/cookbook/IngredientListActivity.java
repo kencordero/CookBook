@@ -6,22 +6,26 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 
 import com.github.kencordero.cookbook.models.Ingredient;
 
 public class IngredientListActivity extends SingleFragmentActivity
 	implements IngredientListFragment.Callbacks, IngredientFragment.Callbacks {
-
-	@Override
+    private static final String TAG = IngredientListActivity.class.getSimpleName();
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        Log.i(TAG, "onCreate");
 		ActionBar ab = getSupportActionBar();
-		ab.setIcon(R.drawable.ic_launcher);
-		ab.setDisplayShowHomeEnabled(true);
+		if (ab != null) {
+			ab.setIcon(R.drawable.ic_launcher);
+			ab.setDisplayShowHomeEnabled(true);
+		}
 	}
 
 	@Override
-	protected Fragment createFragment() {		
+	protected Fragment createFragment() {
+        Log.i(TAG, "createFragment");
 		return new IngredientListFragment();
 	}
 	
@@ -39,10 +43,11 @@ public class IngredientListActivity extends SingleFragmentActivity
 
 	@Override
 	public void onIngredientSelected(Ingredient ingredient) {
+        Log.i(TAG, "onIngredientSelected");
 		if (findViewById(R.id.detailFragmentContainer) == null) {			
 			// phone
 			Intent i = new Intent(this, IngredientPagerActivity.class);
-			i.putExtra(IngredientFragment.EXTRA_INGREDIENT_ID, ingredient.getId());
+			i.putExtra(IngredientFragment.EXTRA_INGREDIENT_ID, ingredient.getUuid());
 			startActivity(i);
 		}
 		else {
@@ -51,7 +56,7 @@ public class IngredientListActivity extends SingleFragmentActivity
 			FragmentTransaction ft = fm.beginTransaction();
 			
 			Fragment oldDetail = fm.findFragmentById(R.id.detailFragmentContainer);
-			Fragment newDetail = IngredientFragment.newInstance(ingredient.getId());
+			Fragment newDetail = IngredientFragment.newInstance(ingredient.getUuid());
 			
 			if (oldDetail != null)
 				ft.remove(oldDetail);

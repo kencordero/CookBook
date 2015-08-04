@@ -1,10 +1,9 @@
 package com.github.kencordero.cookbook;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,7 +16,10 @@ import android.widget.TextView;
 import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
 
+import java.util.ArrayList;
+
 public class IngredientListFragment extends ListFragment {
+	private static final String TAG = IngredientListFragment.class.getSimpleName();
 	private ArrayList<Ingredient> mIngredients;
 	private Callbacks mCallbacks;
 	
@@ -47,6 +49,7 @@ public class IngredientListFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
+		Log.i(TAG, "onCreate");
 		setHasOptionsMenu(true);
 		mIngredients = Pantry.get(getActivity()).getIngredients();
 		
