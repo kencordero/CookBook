@@ -3,7 +3,6 @@ package com.github.kencordero.cookbook.models;
 import android.content.Context;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Pantry {
 	private ArrayList<Ingredient> mIngredients;
@@ -34,9 +33,9 @@ public class Pantry {
 		return mIngredients;
 	}
 	
-	public Ingredient getIngredient(UUID id) {
+	public Ingredient getIngredient(long id) {
 		for (Ingredient i: mIngredients) {
-			if (i.getId().equals(id))
+			if (i.getId() == id)
 				return i;
 		}
 		return null;

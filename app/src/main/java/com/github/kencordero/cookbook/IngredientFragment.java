@@ -13,8 +13,6 @@ import android.widget.EditText;
 import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
 
-import java.util.UUID;
-
 public class IngredientFragment extends Fragment {
 	public static final String EXTRA_INGREDIENT_ID = "com.github.kencordero.cookbook.ingredient";
 	
@@ -44,7 +42,7 @@ public class IngredientFragment extends Fragment {
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
 		
-		UUID ingredientId = (UUID)getArguments().getSerializable(EXTRA_INGREDIENT_ID);
+		long ingredientId = getArguments().getLong(EXTRA_INGREDIENT_ID);
 		mIngredient = Pantry.get(getActivity()).getIngredient(ingredientId);
 	}
 
@@ -72,7 +70,7 @@ public class IngredientFragment extends Fragment {
 		return v;				
 	}
 	
-	public static IngredientFragment newInstance(UUID ingredientId) {
+	public static IngredientFragment newInstance(long ingredientId) {
 		Bundle bundle = new Bundle();
 		bundle.putSerializable(EXTRA_INGREDIENT_ID, ingredientId);
 		

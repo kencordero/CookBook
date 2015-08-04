@@ -1,14 +1,15 @@
 package com.github.kencordero.cookbook.models;
 
-import java.util.UUID;
-
 public class Ingredient {
-	private UUID mId;
+	private long mId;
 	private String mName;
 	
 	// TODO - when adding ingredients, make sure one doesn't already exist
 	public Ingredient() {
-		mId = UUID.randomUUID();
+		mId = -1;
+	}
+	public Ingredient(String name) {
+		mName = name;
 	}
 
 	public String getName() {
@@ -19,7 +20,7 @@ public class Ingredient {
 		mName = name;
 	}
 	
-	public UUID getId() {
+	public long getId() {
 		return mId;
 	}
 }

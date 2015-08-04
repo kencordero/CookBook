@@ -14,13 +14,12 @@ import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class IngredientPagerActivity extends AppCompatActivity
 	implements IngredientFragment.Callbacks {
 	private ViewPager mViewPager;
 	private ArrayList<Ingredient> mIngredients;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,9 +60,9 @@ public class IngredientPagerActivity extends AppCompatActivity
 			
 		});
 		
-		UUID ingredientId = (UUID)getIntent().getSerializableExtra(IngredientFragment.EXTRA_INGREDIENT_ID);
+		long ingredientId = getIntent().getLongExtra(IngredientFragment.EXTRA_INGREDIENT_ID, -1);
 		for (int i = 0; i < mIngredients.size(); ++i) {
-			if (mIngredients.get(i).getId().equals(ingredientId)) {
+			if (mIngredients.get(i).getId() == ingredientId) {
 				mViewPager.setCurrentItem(i);
 				
 				// onPageSelected not called when i == 0
@@ -75,8 +74,8 @@ public class IngredientPagerActivity extends AppCompatActivity
 
 		ActionBar ab = getSupportActionBar();
 		ab.setIcon(R.drawable.ic_launcher);
-		ab.setDisplayShowHomeEnabled(true);
-		ab.setDisplayHomeAsUpEnabled(true);
+		ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME|ActionBar.DISPLAY_HOME_AS_UP,
+							 ActionBar.DISPLAY_SHOW_HOME|ActionBar.DISPLAY_HOME_AS_UP);
 	}
 
 	@Override
