@@ -94,7 +94,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.i(TAG, "getAllIngredients");
         ArrayList<Ingredient> ingredients = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.query(TABLE_INGREDIENT, null, null, null, null, null, COL_NAME);
+        Cursor cursor = db.query(TABLE_INGREDIENT, null, null, null, null, null,
+                COL_NAME + " COLLATE NOCASE");
 
         if (cursor.moveToFirst()) {
             do {
