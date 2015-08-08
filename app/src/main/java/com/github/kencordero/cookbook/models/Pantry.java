@@ -1,6 +1,7 @@
 package com.github.kencordero.cookbook.models;
 
 import android.content.Context;
+import android.os.Build;
 
 import com.github.kencordero.cookbook.DatabaseHelper;
 
@@ -33,7 +34,8 @@ public class Pantry {
 	}
 
 	public void saveIngredient(Ingredient i) {
-		if (i.getName().isEmpty()) return;
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD)
+			if (i.getName().isEmpty()) return;
 		if (i.getId() == -1) {
 			long id = mDb.createIngredient(i);
 			i.setId(id);

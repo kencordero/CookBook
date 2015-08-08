@@ -5,4 +5,7 @@
     <string name="ingredient_name_hint">Enter the name of the ingredient.</string>
     <string name="menu_item_new_ingredient">New Ingredient</string>
     <string name="menu_item_save">Save and Add Another</string>
+    <string name="button_launch_ingredient_activity">Show Ingredients</string>
+    <string name="activity_ingredientList_title">Ingredients</string>
+
 </resources>
