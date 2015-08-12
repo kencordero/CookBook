@@ -1,12 +1,12 @@
 package com.github.kencordero.cookbook;
 
-import java.util.ArrayList;
-
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 
 import com.github.kencordero.cookbook.models.Cookbook;
 import com.github.kencordero.cookbook.models.Recipe;
+
+import java.util.ArrayList;
 
 public class RecipeListFragment extends ListFragment {
 	private ArrayList<Recipe> mCookbook;
@@ -16,5 +16,13 @@ public class RecipeListFragment extends ListFragment {
 		super.onCreate(bundle);
 		
 		mCookbook = Cookbook.get(getActivity()).getRecipes();
+	}
+
+	public void updateUI() {
+
+	}
+
+	public interface OnFragmentInteractionListener {
+		void onRecipeSelected(Recipe recipe);
 	}
 }

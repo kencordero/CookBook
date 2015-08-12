@@ -18,28 +18,28 @@ import java.util.UUID;
 
 public class IngredientFragment extends Fragment {
 	private static final String TAG = IngredientFragment.class.getSimpleName();
-	public static final String EXTRA_INGREDIENT_ID = "com.github.kencordero.cookbook.ingredient";
+	public static final String EXTRA_INGREDIENT_ID = "com.github.kencordero.cookbook.ingredient_id";
 	
 	private Ingredient mIngredient;
-	private Callbacks mCallbacks;
+	private OnFragmentInteractionListener mListener;
 	
 	/**
 	 * Required interface for hosting activities.
 	 */
-	public interface Callbacks {
+	public interface OnFragmentInteractionListener {
 		void onIngredientUpdated(Ingredient ingredient);
 	}
 	
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		mCallbacks = (Callbacks)activity;
+		mListener = (OnFragmentInteractionListener)activity;
 	}
 	
 	@Override
 	public void onDetach() {
 		super.onDetach();
-		mCallbacks = null;
+		mListener = null;
 	}
 	
 	public void onCreate(Bundle bundle) {

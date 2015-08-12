@@ -6,6 +6,12 @@
     <string name="menu_item_new_ingredient">New Ingredient</string>
     <string name="menu_item_save">Save and Add Another</string>
     <string name="button_launch_ingredient_activity">Show Ingredients</string>
+    <string name="button_launch_recipe_activity">Show Recipes</string>
     <string name="activity_ingredientList_title">Ingredients</string>
+    <string name="activity_recipeList_title">Recipes</string>
+    <string name="title_activity_recipe_pager">RecipePagerActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="recipe_title_hint">Enter the title of the recipe</string>
 
 </resources>

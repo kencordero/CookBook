@@ -10,9 +10,11 @@ import android.util.Log;
 
 import com.github.kencordero.cookbook.models.Ingredient;
 
-public class IngredientListActivity extends SingleFragmentActivity
-	implements IngredientListFragment.Callbacks, IngredientFragment.Callbacks {
+public class IngredientListActivity extends SingleFragmentActivity implements
+		IngredientListFragment.OnFragmentInteractionListener,
+		IngredientFragment.OnFragmentInteractionListener {
     private static final String TAG = IngredientListActivity.class.getSimpleName();
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate");

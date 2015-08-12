@@ -21,12 +21,12 @@ import java.util.ArrayList;
 public class IngredientListFragment extends ListFragment {
 	private static final String TAG = IngredientListFragment.class.getSimpleName();
 	private ArrayList<Ingredient> mIngredients;
-	private Callbacks mCallbacks;
+	private OnFragmentInteractionListener mListener;
 	
 	/**
 	 * Required interface for the hosting activity
 	 */
-	public interface Callbacks {
+	public interface OnFragmentInteractionListener {
 		void onIngredientSelected(Ingredient ingredient);
 	}
 	
@@ -37,13 +37,18 @@ public class IngredientListFragment extends ListFragment {
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		mCallbacks = (Callbacks)activity;
+		try {
+			mListener = (OnFragmentInteractionListener) activity;
+		} catch (ClassCastException exception) {
+			throw new ClassCastException(activity.toString()
+					+ " must implement IngredientListFragment.OnFragmentInteractionListener");
+		}
 	}
 	
 	@Override
 	public void onDetach() {
 		super.onDetach();
-		mCallbacks = null;
+		mListener = null;
 	}
 	
 	@Override
@@ -60,7 +65,7 @@ public class IngredientListFragment extends ListFragment {
 	@Override
 	public void onListItemClick(ListView lv, View v, int position, long id) {
 		Ingredient i = ((IngredientAdapter)getListAdapter()).getItem(position);
-		mCallbacks.onIngredientSelected(i);
+		mListener.onIngredientSelected(i);
 	}
 	
 	@Override
@@ -82,7 +87,7 @@ public class IngredientListFragment extends ListFragment {
 			Ingredient ingredient = new Ingredient();
 			Pantry.get(getActivity()).addIngredient(ingredient);
 			updateUI();
-			mCallbacks.onIngredientSelected(ingredient);
+			mListener.onIngredientSelected(ingredient);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);		
@@ -97,7 +102,7 @@ public class IngredientListFragment extends ListFragment {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			if (convertView == null)
-				convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_ingredient, null);			
+				convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item, null);
 			
 			Ingredient ingredient = getItem(position);
 			

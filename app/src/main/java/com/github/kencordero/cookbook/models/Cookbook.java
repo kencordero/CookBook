@@ -1,9 +1,9 @@
 package com.github.kencordero.cookbook.models;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.UUID;
-
-import android.content.Context;
 
 public class Cookbook {
 	private ArrayList<Recipe> mRecipes;
@@ -35,7 +35,7 @@ public class Cookbook {
 	
 	public Recipe getRecipe(UUID id) {
 		for (Recipe r: mRecipes) {
-			if (r.getId().equals(id))
+			if (r.getUuid().equals(id))
 				return r;
 		}
 		return null;

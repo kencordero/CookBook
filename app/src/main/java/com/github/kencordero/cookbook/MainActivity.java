@@ -24,13 +24,22 @@ public class MainActivity extends AppCompatActivity {
             ab.setIcon(R.drawable.ic_launcher);
         }
 
-        Button showIngredientsButton = (Button)findViewById(R.id.show_ingredients_button);
+        final Button showIngredientsButton = (Button)findViewById(R.id.show_ingredients_button);
         showIngredientsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), IngredientListActivity.class));
             }
         });
+
+        final Button showRecipesButton = (Button)findViewById(R.id.show_recipes_button);
+        showRecipesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), RecipeListActivity.class));
+            }
+        });
+
     }
 
     @Override

@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Recipe {
-	private UUID mId;
+	private long mId;
+	private UUID mUuid;
 	private String mTitle;
 	private ArrayList<Ingredient> mIngredients;
 	// TODO model incomplete, missing directions, proportions, etc.
 	
 	public Recipe() {
-		mId = UUID.randomUUID();
+		mUuid = UUID.randomUUID();
 	}
 
 	public void addIngredient(Ingredient ingredient) {
@@ -29,7 +30,11 @@ public class Recipe {
 		mTitle = title;
 	}
 	
-	public UUID getId() {
+	public long getId() {
 		return mId;
+	}
+
+	public UUID getUuid() {
+		return mUuid;
 	}
 }

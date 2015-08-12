@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class IngredientPagerActivity extends AppCompatActivity
-	implements IngredientFragment.Callbacks {
+	implements IngredientFragment.OnFragmentInteractionListener {
 	private static final String TAG = IngredientPagerActivity.class.getSimpleName();
 	private ViewPager mViewPager;
 	private ArrayList<Ingredient> mIngredients;
