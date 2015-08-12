@@ -106,7 +106,7 @@ public class IngredientListFragment extends ListFragment {
 			
 			Ingredient ingredient = getItem(position);
 			
-			TextView titleTextView = (TextView)convertView.findViewById(R.id.ingredient_list_item_textView);
+			TextView titleTextView = (TextView)convertView.findViewById(R.id.item_list_item_textView);
 			titleTextView.setText(ingredient.getName());
 						
 			return convertView;

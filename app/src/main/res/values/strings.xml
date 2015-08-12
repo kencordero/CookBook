@@ -13,5 +13,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="recipe_title_hint">Enter the title of the recipe</string>
+    <string name="title_activity_item_list">ItemListActivity</string>
+    <string name="item_name_hint">Enter the name of the item</string>
 
 </resources>
