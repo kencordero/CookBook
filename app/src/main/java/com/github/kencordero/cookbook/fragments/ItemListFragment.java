@@ -1,4 +1,4 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.github.kencordero.cookbook.R;
 import com.github.kencordero.cookbook.models.Item;
 import com.github.kencordero.cookbook.models.ItemCollection;
 

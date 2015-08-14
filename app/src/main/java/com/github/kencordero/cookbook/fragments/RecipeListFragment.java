@@ -1,14 +1,14 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 
+import com.github.kencordero.cookbook.fragments.ItemListFragment;
 import com.github.kencordero.cookbook.models.Cookbook;
 import com.github.kencordero.cookbook.models.Recipe;
 
 import java.util.ArrayList;
 
-public class RecipeListFragment extends ListFragment {
+public class RecipeListFragment extends ItemListFragment {
 	private ArrayList<Recipe> mCookbook;
 	
 	@Override

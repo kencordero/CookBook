@@ -10,22 +10,22 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".IngredientListActivity"
+            android:name=".activities.IngredientListActivity"
             android:label="@string/activity_ingredientList_title" >
         </activity>
         <activity
-            android:name=".IngredientPagerActivity"
+            android:name=".activities.IngredientPagerActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".IngredientListActivity" >
+            android:parentActivityName=".activities.IngredientListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".IngredientListActivity" />
+                android:value=".activities.IngredientListActivity" />
         </activity>
         <activity
-            android:name=".RecipeListActivity"
+            android:name=".activities.RecipeListActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,11 +34,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RecipePagerActivity"
+            android:name=".activities.RecipePagerActivity"
             android:label="@string/title_activity_recipe_pager" >
         </activity>
         <activity
-            android:name=".ItemListActivity"
+            android:name=".activities.ItemListActivity"
             android:label="@string/title_activity_item_list" >
         </activity>
     </application>

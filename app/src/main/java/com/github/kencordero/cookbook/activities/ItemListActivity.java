@@ -1,4 +1,4 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 
+import com.github.kencordero.cookbook.R;
+import com.github.kencordero.cookbook.fragments.ItemFragment;
+import com.github.kencordero.cookbook.fragments.ItemListFragment;
 import com.github.kencordero.cookbook.models.Item;
 
 public class ItemListActivity extends SingleFragmentActivity implements

@@ -1,4 +1,4 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.github.kencordero.cookbook.R;
+import com.github.kencordero.cookbook.fragments.ItemFragment;
 import com.github.kencordero.cookbook.models.Item;
 import com.github.kencordero.cookbook.models.ItemCollection;
 

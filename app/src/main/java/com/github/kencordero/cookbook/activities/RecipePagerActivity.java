@@ -1,12 +1,13 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.github.kencordero.cookbook.R;
+import com.github.kencordero.cookbook.fragments.RecipeFragment;
 import com.github.kencordero.cookbook.models.Recipe;
 
-public class RecipePagerActivity extends AppCompatActivity
+public class RecipePagerActivity extends ItemPagerActivity
     implements RecipeFragment.OnFragmentInteractionListener {
 
     @Override

@@ -1,4 +1,4 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 
+import com.github.kencordero.cookbook.R;
+import com.github.kencordero.cookbook.fragments.RecipeFragment;
+import com.github.kencordero.cookbook.fragments.RecipeListFragment;
 import com.github.kencordero.cookbook.models.Recipe;
 
-public class RecipeListActivity extends SingleFragmentActivity implements
+public class RecipeListActivity extends ItemListActivity implements
 		RecipeFragment.OnFragmentInteractionListener,
 		RecipeListFragment.OnFragmentInteractionListener {
 	private static final String TAG =  RecipeListActivity.class.getSimpleName();

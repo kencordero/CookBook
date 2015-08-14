@@ -1,9 +1,11 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.github.kencordero.cookbook.R;
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
 	protected abstract Fragment createFragment();

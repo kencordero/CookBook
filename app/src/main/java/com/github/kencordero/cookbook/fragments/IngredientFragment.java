@@ -1,8 +1,7 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -11,18 +10,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.github.kencordero.cookbook.R;
 import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
 
 import java.util.UUID;
 
-public class IngredientFragment extends Fragment {
+public class IngredientFragment extends ItemFragment {
 	private static final String TAG = IngredientFragment.class.getSimpleName();
 	public static final String EXTRA_INGREDIENT_ID = "com.github.kencordero.cookbook.ingredient_id";
 	
 	private Ingredient mIngredient;
 	private OnFragmentInteractionListener mListener;
-	
+
 	/**
 	 * Required interface for hosting activities.
 	 */

@@ -1,8 +1,7 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,12 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.github.kencordero.cookbook.R;
 import com.github.kencordero.cookbook.models.Ingredient;
 import com.github.kencordero.cookbook.models.Pantry;
 
 import java.util.ArrayList;
 
-public class IngredientListFragment extends ListFragment {
+public class IngredientListFragment extends ItemListFragment {
 	private static final String TAG = IngredientListFragment.class.getSimpleName();
 	private ArrayList<Ingredient> mIngredients;
 	private OnFragmentInteractionListener mListener;

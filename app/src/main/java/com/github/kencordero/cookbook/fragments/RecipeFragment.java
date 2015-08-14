@@ -1,4 +1,4 @@
-package com.github.kencordero.cookbook;
+package com.github.kencordero.cookbook.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.kencordero.cookbook.R;
 import com.github.kencordero.cookbook.models.Cookbook;
 import com.github.kencordero.cookbook.models.Recipe;
 
@@ -21,7 +22,7 @@ import java.util.UUID;
  * Use the {@link RecipeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecipeFragment extends Fragment {
+public class RecipeFragment extends ItemFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public static final String EXTRA_RECIPE_ID = "com.github.kencordero.cookbook.recipe_id";
