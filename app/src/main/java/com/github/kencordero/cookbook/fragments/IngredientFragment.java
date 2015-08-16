@@ -2,6 +2,7 @@ package com.github.kencordero.cookbook.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -16,7 +17,7 @@ import com.github.kencordero.cookbook.models.Pantry;
 
 import java.util.UUID;
 
-public class IngredientFragment extends ItemFragment {
+public class IngredientFragment extends Fragment {
 	private static final String TAG = IngredientFragment.class.getSimpleName();
 	public static final String EXTRA_INGREDIENT_ID = "com.github.kencordero.cookbook.ingredient_id";
 	

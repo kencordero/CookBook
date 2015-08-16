@@ -13,7 +13,7 @@ import com.github.kencordero.cookbook.fragments.RecipeFragment;
 import com.github.kencordero.cookbook.fragments.RecipeListFragment;
 import com.github.kencordero.cookbook.models.Recipe;
 
-public class RecipeListActivity extends ItemListActivity implements
+public class RecipeListActivity extends SingleFragmentActivity implements
 		RecipeFragment.OnFragmentInteractionListener,
 		RecipeListFragment.OnFragmentInteractionListener {
 	private static final String TAG =  RecipeListActivity.class.getSimpleName();

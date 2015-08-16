@@ -37,10 +37,6 @@
             android:name=".activities.RecipePagerActivity"
             android:label="@string/title_activity_recipe_pager" >
         </activity>
-        <activity
-            android:name=".activities.ItemListActivity"
-            android:label="@string/title_activity_item_list" >
-        </activity>
     </application>
 
 </manifest>

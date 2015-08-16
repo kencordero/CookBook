@@ -22,7 +22,7 @@ import java.util.UUID;
  * Use the {@link RecipeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecipeFragment extends ItemFragment {
+public class RecipeFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public static final String EXTRA_RECIPE_ID = "com.github.kencordero.cookbook.recipe_id";

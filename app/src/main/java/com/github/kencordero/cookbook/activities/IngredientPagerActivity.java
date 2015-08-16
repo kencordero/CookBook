@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +19,7 @@ import com.github.kencordero.cookbook.models.Pantry;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class IngredientPagerActivity extends ItemPagerActivity
+public class IngredientPagerActivity extends AppCompatActivity
 	implements IngredientFragment.OnFragmentInteractionListener {
 	private static final String TAG = IngredientPagerActivity.class.getSimpleName();
 	private ViewPager mViewPager;

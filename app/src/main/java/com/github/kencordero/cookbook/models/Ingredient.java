@@ -6,7 +6,7 @@ public class Ingredient {
 	private long mId;
 	private UUID mUuid;
 	private String mName;
-	
+
 	// TODO - when adding ingredients, make sure one doesn't already exist
 	public Ingredient(long id, String name) {
 		mId = id;
